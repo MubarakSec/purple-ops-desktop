@@ -1,0 +1,9 @@
+[Unit]
+Description=Change GNOME Wallpaper
+
+[Service]
+Type=oneshot
+ExecStart=__HOME__/.local/bin/change-wallpaper.sh
+
+[Install]
+WantedBy=default.target

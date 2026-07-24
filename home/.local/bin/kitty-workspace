@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [[ "${KITTY_BARE_SHELL:-0}" == "1" || -n "${TMUX:-}" ]]; then
+    exec /bin/bash -l
+fi
+
+if ! command -v tmux >/dev/null 2>&1; then
+    exec /bin/bash -l
+fi
+
+primary_session="${KITTY_TMUX_SESSION:-ops}"
+
+# The first Kitty owns the persistent primary workspace. If it was closed
+# without ending tmux, the next Kitty restores it.
+if ! tmux has-session -t "=${primary_session}" 2>/dev/null; then
+    exec tmux new-session -s "$primary_session" -c "$PWD"
+fi
+
+attached_clients="$(
+    tmux display-message -p -t "=${primary_session}:" '#{session_attached}'
+)"
+if (( attached_clients == 0 )); then
+    exec tmux attach-session -t "=${primary_session}"
+fi
+
+# A second Ctrl+Alt+T should be an independent terminal, not a mirror of the
+# primary workspace. Secondary sessions disappear when their Kitty closes.
+fresh_session="${primary_session}-fresh-$$"
+cleanup_fresh_session() {
+    tmux kill-session -t "$fresh_session" 2>/dev/null || true
+}
+trap cleanup_fresh_session EXIT
+tmux new-session -d -s "$fresh_session" -c "$PWD"
+tmux set-option -t "$fresh_session" detach-on-destroy on
+tmux attach-session -t "$fresh_session"

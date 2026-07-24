@@ -1,0 +1,16 @@
+# Local test and recovery output
+.restore-test/
+*.log
+*.tmp
+
+# Never commit shell/application state or credentials
+**/.bash_history
+**/.lesshst
+**/.python_history
+**/known_hosts
+**/credentials*
+**/*token*
+**/*secret*
+**/*.key
+**/*.pem
+

@@ -1,0 +1,6 @@
+# Optional applications used on the current workstation.
+# The restore script does not install these automatically.
+bitwarden
+code
+firefox
+

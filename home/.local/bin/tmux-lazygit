@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+start="${1:-$PWD}"
+
+if root="$(git -C "$start" rev-parse --show-toplevel 2>/dev/null)"; then
+    exec lazygit --path "$root"
+fi
+
+selection="$(
+    while IFS= read -r marker; do
+        repo="${marker%/.git}"
+        if git -C "$repo" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+            printf '%s\n' "$repo"
+        fi
+    done < <(
+        find "$HOME" -maxdepth 5 \
+            \( -path "$HOME/.cache" -o -path "$HOME/.local" \
+               -o -path '*/node_modules' -o -path "$HOME/.cargo" \
+               -o -path "$HOME/.rustup" \) -prune \
+            -o -name .git -print 2>/dev/null
+    ) |
+        sort -u |
+        fzf \
+            --prompt=' GIT REPO  ' \
+            --pointer='◆' \
+            --border-label=' repositories '
+)" || exit 0
+
+[[ -n "$selection" ]] || exit 0
+exec lazygit --path "$selection"

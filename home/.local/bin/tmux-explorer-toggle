@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+target_pane="${1:?target tmux pane is required}"
+window_id="$(tmux display-message -p -t "$target_pane" '#{window_id}')"
+
+while read -r pane_id is_explorer; do
+    if [[ "$is_explorer" == "1" ]]; then
+        tmux kill-pane -t "$pane_id"
+        exit 0
+    fi
+done < <(tmux list-panes -t "$window_id" -F '#{pane_id} #{@purple_explorer}')
+
+start="$(tmux display-message -p -t "$target_pane" '#{pane_current_path}')"
+new_pane="$(
+    tmux split-window \
+        -P -F '#{pane_id}' \
+        -t "$target_pane" \
+        -h -b -l 38% \
+        -c "$start" \
+        "$HOME/.local/bin/tmux-explorer-pane '$target_pane'"
+)"
+tmux set-option -p -t "$new_pane" @purple_explorer 1
+tmux select-pane -t "$new_pane" -T "EXPLORER"

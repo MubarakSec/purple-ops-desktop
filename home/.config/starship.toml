@@ -1,0 +1,98 @@
+# Purple Ops prompt — show context and state, not decoration.
+command_timeout = 2000
+add_newline = true
+palette = "purple_ops"
+format = "$username$hostname$directory$git_branch$git_status$fill$sudo$status$cmd_duration$jobs$memory_usage$battery$time$line_break$character"
+
+[palettes.purple_ops]
+text = "#e8e3f3"
+muted = "#8b80a7"
+purple = "#a277ff"
+purple_bright = "#c099ff"
+cyan = "#61e2ff"
+green = "#6ee7b7"
+amber = "#ffd580"
+pink = "#ff5c8a"
+
+[username]
+show_always = false
+style_user = "bold text"
+style_root = "bold pink"
+format = "[$user]($style) "
+
+[hostname]
+ssh_only = true
+style = "bold amber"
+format = "[@$hostname]($style) "
+
+[directory]
+style = "bold purple_bright"
+read_only = " "
+read_only_style = "bold pink"
+truncation_length = 4
+truncate_to_repo = false
+format = "[$path]($style)[$read_only]($read_only_style) "
+
+[git_branch]
+symbol = " "
+style = "bold purple"
+format = "[$symbol$branch(:$remote_branch)]($style) "
+
+[git_status]
+style = "bold pink"
+format = "([$all_status$ahead_behind]($style) )"
+
+[fill]
+symbol = " "
+
+[cmd_duration]
+min_time = 1500
+style = "amber"
+format = "[󱎫 $duration]($style) "
+
+[jobs]
+symbol = "󰒋 "
+style = "bold cyan"
+format = "[$symbol$number]($style) "
+
+[sudo]
+disabled = false
+symbol = "󰌾 "
+style = "bold amber"
+format = "[$symbol]($style)"
+
+[status]
+disabled = false
+symbol = "󰅚 "
+style = "bold pink"
+format = "[$symbol$status]($style) "
+
+[memory_usage]
+disabled = false
+threshold = 85
+symbol = "󰍛 "
+style = "bold pink"
+format = "[$symbol${ram_pct}]($style) "
+
+[battery]
+full_symbol = "󰁹 "
+charging_symbol = "󰂄 "
+discharging_symbol = "󰁻 "
+unknown_symbol = "󰂑 "
+empty_symbol = "󰂎 "
+format = "[$symbol$percentage]($style) "
+
+[[battery.display]]
+threshold = 20
+style = "bold pink"
+
+[time]
+disabled = false
+time_format = "%H:%M"
+style = "muted"
+format = "[ $time]($style)"
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold pink)"
+vimcmd_symbol = "[❮](bold cyan)"

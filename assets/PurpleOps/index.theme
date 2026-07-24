@@ -1,0 +1,8 @@
+[Sound Theme]
+Name=Purple Ops
+Comment=Short, restrained feedback sounds for the Purple Ops workstation
+Inherits=Yaru
+Directories=stereo
+
+[stereo]
+OutputProfile=stereo

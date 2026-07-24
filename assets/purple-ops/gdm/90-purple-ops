@@ -1,0 +1,7 @@
+[org/gnome/login-screen]
+logo='/usr/local/share/purple-ops/purple-ops-mark.svg'
+
+[org/gnome/desktop/interface]
+accent-color='purple'
+color-scheme='prefer-dark'
+font-name='Inter 11'

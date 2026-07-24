@@ -1,0 +1,64 @@
+[Plymouth Theme]
+Name=Purple Ops
+Description=A restrained purple boot identity for the Purple Ops workstation.
+ModuleName=two-step
+
+[two-step]
+Font=Ubuntu 12
+TitleFont=Ubuntu Light 30
+ImageDir=/usr/share/plymouth/themes/purple-ops
+DialogHorizontalAlignment=.5
+DialogVerticalAlignment=.62
+TitleHorizontalAlignment=.5
+TitleVerticalAlignment=.40
+HorizontalAlignment=.5
+VerticalAlignment=.66
+WatermarkHorizontalAlignment=.5
+WatermarkVerticalAlignment=.43
+Transition=none
+TransitionDuration=0.0
+BackgroundStartColor=0x0b0812
+BackgroundEndColor=0x171126
+ProgressBarBackgroundColor=0x2d2442
+ProgressBarForegroundColor=0xa277ff
+MessageBelowAnimation=true
+
+[boot-up]
+UseEndAnimation=false
+UseFirmwareBackground=false
+
+[shutdown]
+UseEndAnimation=false
+UseFirmwareBackground=false
+
+[reboot]
+UseEndAnimation=false
+UseFirmwareBackground=false
+
+[updates]
+SuppressMessages=true
+ProgressBarShowPercentComplete=true
+UseProgressBar=true
+Title=Installing updates
+SubTitle=Keep the workstation powered on
+
+[system-upgrade]
+SuppressMessages=true
+ProgressBarShowPercentComplete=true
+UseProgressBar=true
+Title=Upgrading system
+SubTitle=Keep the workstation powered on
+
+[firmware-upgrade]
+SuppressMessages=true
+ProgressBarShowPercentComplete=true
+UseProgressBar=true
+Title=Updating firmware
+SubTitle=Keep the workstation powered on
+
+[system-reset]
+SuppressMessages=true
+ProgressBarShowPercentComplete=true
+UseProgressBar=true
+Title=Resetting system
+SubTitle=Keep the workstation powered on

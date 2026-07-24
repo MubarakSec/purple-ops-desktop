@@ -1,0 +1,49 @@
+# Terminal-native navigation and sensible defaults
+export EDITOR="nvim"
+export VISUAL="nvim"
+export PAGER="less -R"
+export MANPAGER="sh -c 'col -bx | bat --language=man --plain'"
+
+export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fd --type d --hidden --follow --exclude .git"
+export FZF_DEFAULT_OPTS="
+  --height=70%
+  --layout=reverse
+  --border=rounded
+  --info=inline
+  --prompt=' SEARCH  '
+  --pointer='◆'
+  --marker='●'
+  --color=bg+:#251a3d,bg:#0b0812,spinner:#c099ff,hl:#ff5c8a
+  --color=fg:#b5a8d5,header:#61e2ff,info:#786e91,pointer:#a277ff
+  --color=marker:#6ee7b7,fg+:#e8e3f3,prompt:#c099ff,hl+:#ff5c8a
+"
+
+eval "$(zoxide init bash)"
+if [[ ! ${BLE_VERSION-} ]]; then
+    eval "$(fzf --bash)"
+fi
+
+function y() {
+    local tmp cwd
+    tmp="$(mktemp -t 'yazi-cwd.XXXXXX')"
+    command yazi "$@" --cwd-file="$tmp"
+    IFS= read -r -d '' cwd < "$tmp"
+    [[ "$cwd" != "$PWD" && -d "$cwd" ]] && builtin cd -- "$cwd"
+    command rm -f -- "$tmp"
+}
+
+alias ls='eza --icons=auto --group-directories-first'
+alias ll='eza -lah --icons=auto --group-directories-first --git'
+alias la='eza -a --icons=auto --group-directories-first'
+alias lt='eza --tree --level=2 --icons=auto --group-directories-first'
+alias b='bat --paging=auto --style=numbers,changes,header'
+alias lg='lazygit'
+alias bt='btop'
+alias vim='nvim'
+alias ports='ss -tulpn'
+alias listening='ss -lntup'
+alias public-ip='curl -fsS https://ifconfig.me; printf "\n"'
+alias ..='cd ..'
+alias ...='cd ../..'

@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+target_pane="${1:?target tmux pane is required}"
+start="${2:-$PWD}"
+cwd_file="$(mktemp -t purple-explorer-cwd.XXXXXX)"
+trap 'rm -f -- "$cwd_file"' EXIT
+
+yazi "$start" --cwd-file="$cwd_file"
+
+[[ -s "$cwd_file" ]] || exit 0
+cwd="$(<"$cwd_file")"
+[[ -d "$cwd" ]] || exit 0
+
+target_command="$(
+    tmux display-message -p -t "$target_pane" '#{pane_current_command}' 2>/dev/null
+)" || exit 0
+
+case "$target_command" in
+    bash|zsh|fish)
+        printf -v quoted_cwd '%q' "$cwd"
+        tmux send-keys -t "$target_pane" "cd -- $quoted_cwd" Enter
+        tmux display-message -t "$target_pane" "cwd → $cwd"
+        ;;
+    *)
+        tmux display-message "Selected $cwd — shell pane is busy with $target_command"
+        ;;
+esac

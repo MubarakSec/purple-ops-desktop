@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+selection="$(
+    fd --type f --hidden --follow --exclude .git |
+        fzf \
+            --prompt=' OPEN  ' \
+            --pointer='◆' \
+            --marker='●' \
+            --border-label=' files ' \
+            --preview='bat --color=always --style=numbers,changes --line-range=:500 -- {}' \
+            --preview-window='right,60%,border-left'
+)" || exit 0
+
+[[ -n "$selection" ]] || exit 0
+exec nvim -- "$selection"

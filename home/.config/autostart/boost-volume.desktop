@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Boost Audio Volume
+Exec=wpctl set-volume @DEFAULT_SINK@ 150%
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true

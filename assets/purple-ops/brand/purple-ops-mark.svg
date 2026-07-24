@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="280" height="84" viewBox="0 0 420 126">
+  <defs>
+    <linearGradient id="mark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c099ff"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <path d="M62 10 105 35v50l-43 25L19 85V35Z"
+        fill="#171126" stroke="url(#mark)" stroke-width="3"/>
+  <path d="m43 47 14 13-14 13M65 75h19"
+        fill="none" stroke="#c099ff" stroke-width="5"
+        stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+
+  <text x="126" y="61" fill="#f7f3ff"
+        font-family="Inter, Cantarell, sans-serif" font-size="35"
+        font-weight="750" letter-spacing="4">PURPLE OPS</text>
+  <text x="129" y="88" fill="#8b80a7"
+        font-family="JetBrains Mono, monospace" font-size="12"
+        font-weight="600" letter-spacing="4">SECURE WORKSTATION</text>
+</svg>
