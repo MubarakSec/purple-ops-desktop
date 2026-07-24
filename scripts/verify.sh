@@ -46,7 +46,7 @@ if rg -n --hidden \
     --glob '!assets/wallpapers/**' \
     --glob '!assets/PurpleOps/**' \
     --glob '!**/.git/**' \
-    --glob '!scripts/verify.sh' \
+    --glob '!**/scripts/verify.sh' \
     '/home/mobta|gho_[A-Za-z0-9]+|github_pat_[A-Za-z0-9_]+|BEGIN (RSA |OPENSSH |EC )?PRIVATE KEY|password[[:space:]]*=' \
     "$repo_root"
 then
