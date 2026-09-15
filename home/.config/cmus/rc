@@ -1,0 +1,6 @@
+# Cmus configuration
+colorscheme purple-ops
+set output_plugin=pulse
+set repeat=false
+set shuffle=false
+set show_remaining_time=true
