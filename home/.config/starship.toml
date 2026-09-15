@@ -2,7 +2,7 @@
 command_timeout = 2000
 add_newline = true
 palette = "purple_ops"
-format = "$username$hostname$directory$git_branch$git_status$fill$sudo$status$cmd_duration$jobs$memory_usage$battery$time$line_break$character"
+format = "$username$hostname$directory$git_branch$git_status$fill$sudo$status$cmd_duration$jobs$memory_usage$battery$line_break$character"
 
 [palettes.purple_ops]
 text = "#e8e3f3"
@@ -87,7 +87,7 @@ threshold = 20
 style = "bold pink"
 
 [time]
-disabled = false
+disabled = true
 time_format = "%H:%M"
 style = "muted"
 format = "[ $time]($style)"

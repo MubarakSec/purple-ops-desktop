@@ -25,10 +25,27 @@ works.
 | `\|` | Split left/right |
 | `-` | Split top/bottom |
 | `h j k l` | Move between panes |
-| `H J K L` | Resize the active pane |
+| `Shift+H` | Resize the active pane toward the left |
+| `Shift+J` | Resize the active pane downward |
+| `Shift+K` | Resize the active pane upward |
+| `Shift+L` | Resize the active pane toward the right |
 | `z` | Zoom or restore the active pane |
 | `x` | Close a pane |
 | `X` | Close a window |
+
+After `Ctrl+Space`, you can repeat `Shift+H/J/K/L` without pressing the
+prefix again.
+
+## Terminal size
+
+These Kitty shortcuts work directly; they do not use the tmux prefix.
+
+| Key | Action |
+|---|---|
+| `Ctrl+Shift++` | Increase the font size |
+| `Ctrl+Shift+-` | Decrease the font size |
+| `Ctrl+Shift+0` | Reset the font to its configured size |
+| `Alt+F8` | Resize the entire Kitty window |
 
 ## Workbench
 

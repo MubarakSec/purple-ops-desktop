@@ -197,6 +197,10 @@ load_dconf /org/gnome/shell/extensions/just-perfection/ extension-just-perfectio
 load_dconf /org/gnome/shell/extensions/tiling-assistant/ extension-tiling-assistant.ini
 load_dconf /org/gnome/shell/extensions/user-theme/ extension-user-theme.ini
 load_dconf /org/gnome/shell/extensions/vitals/ extension-vitals.ini
+load_dconf /org/gnome/shell/extensions/hidetopbar/ extension-hidetopbar.ini
+load_dconf /org/gnome/desktop/wm/keybindings/ wm-keybindings.ini
+load_dconf /org/gnome/shell/keybindings/ shell-keybindings.ini
+load_dconf /org/gnome/settings-daemon/plugins/color/ color.ini
 
 gsettings set org.gnome.desktop.background picture-uri "file://$HOME/.wallpaper/linux.png"
 gsettings set org.gnome.desktop.background picture-uri-dark "file://$HOME/.wallpaper/linux.png"

@@ -90,6 +90,10 @@ dump_dconf /org/gnome/shell/extensions/just-perfection/ extension-just-perfectio
 dump_dconf /org/gnome/shell/extensions/tiling-assistant/ extension-tiling-assistant.ini
 dump_dconf /org/gnome/shell/extensions/user-theme/ extension-user-theme.ini
 dump_dconf /org/gnome/shell/extensions/vitals/ extension-vitals.ini
+dump_dconf /org/gnome/shell/extensions/hidetopbar/ extension-hidetopbar.ini
+dump_dconf /org/gnome/desktop/wm/keybindings/ wm-keybindings.ini
+dump_dconf /org/gnome/shell/keybindings/ shell-keybindings.ini
+dump_dconf /org/gnome/settings-daemon/plugins/color/ color.ini
 sed -i \
     "s#^picture-uri=.*#picture-uri='file://__HOME__/.wallpaper/lockscreen.jpg'#" \
     "$repo_root/dconf/desktop-screensaver.ini"
@@ -124,9 +128,10 @@ while IFS= read -r -d '' file; do
 done < <(find "$snapshot_home" "$repo_root/assets/purple-ops" -type f -print0)
 
 tar -C "$current_home" -cJf "$repo_root/archives/desktop-themes.tar.xz" \
-    .themes/catppuccin-mocha-lavender-standard+default \
+    .themes/Orchis-Purple-Dark \
     .icons/Tela-circle \
-    .icons/Tela-circle-dark \
+    .icons/Tela-circle-purple \
+    .icons/Tela-circle-purple-dark \
     .icons/Bibata-Modern-Classic
 tar -C "$current_home/.local/share" \
     -cJf "$repo_root/archives/gnome-shell-extensions.tar.xz" \

@@ -20,10 +20,18 @@ export FZF_DEFAULT_OPTS="
   --color=marker:#6ee7b7,fg+:#e8e3f3,prompt:#c099ff,hl+:#ff5c8a
 "
 
-eval "$(zoxide init bash)"
-if [[ ! ${BLE_VERSION-} ]]; then
-    eval "$(fzf --bash)"
+if [[ -n "${BASH_VERSION-}" ]]; then
+    eval "$(zoxide init bash)"
+    if [[ ! ${BLE_VERSION-} ]]; then
+        eval "$(fzf --bash)"
+    fi
 fi
+
+# Arabic-friendly terminal (VTE BiDi). Kitty/tmux cannot reorder mixed
+# Arabic + English text; Ptyxis handles it correctly.
+arabic-term() {
+    ptyxis --new-window -T "عربي" -d "$PWD" &>/dev/null &
+}
 
 function y() {
     local tmp cwd

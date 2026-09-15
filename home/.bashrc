@@ -133,15 +133,12 @@ export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-
 
 
 # Added by Antigravity CLI installer
-export PATH="__HOME__/.local/bin:$PATH"
-export PATH="__HOME__/.local/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 # Starship Prompt (Interactive Only)
 if [[ -n "$PS1" ]]; then
     eval "$(starship init bash)"
 fi
-export PATH=~/.npm-global/bin:$PATH
-export PATH=~/.npm-global/bin:$PATH
+export PATH="$HOME/.npm-global/bin:$PATH"
 
 alias bg="change-wallpaper.sh"
 
@@ -151,3 +148,22 @@ if [ -f "$HOME/.config/shell/purple-ops.bash" ]; then
 fi
 
 [[ ! ${BLE_VERSION-} ]] || ble-attach
+
+# >>> grok installer >>>
+export PATH="$HOME/.grok/bin:$PATH"
+[[ -r "$HOME/.grok/completions/bash/grok.bash" ]] && source "$HOME/.grok/completions/bash/grok.bash"
+# <<< grok installer <<<
+
+# Modern CLI Tool Enhancements
+alias ls='eza --icons --group-directories-first'
+alias ll='eza -la --icons --group-directories-first'
+alias tree='eza --tree --icons'
+alias cat='bat --style=plain --paging=never'
+alias top='btop'
+
+# Smart Navigation & Fuzzy Search
+eval "$(__HOME__/.local/bin/zoxide init bash)" 2>/dev/null || true
+alias cd='z'
+eval "$(__HOME__/.local/bin/fzf --bash)" 2>/dev/null || true
+
+export PATH=$PATH:$HOME/go/bin

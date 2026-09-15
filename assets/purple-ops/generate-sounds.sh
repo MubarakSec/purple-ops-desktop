@@ -12,7 +12,7 @@ render() {
 
   ffmpeg -y -hide_banner -loglevel error \
     -f lavfi -i "aevalsrc=${expression}:s=48000:d=${duration}" \
-    -af "highpass=f=80,lowpass=f=5000,afade=t=in:st=0:d=0.012,afade=t=out:st=${fade_start}:d=0.08,aformat=channel_layouts=stereo" \
+    -af "highpass=f=80,lowpass=f=5000,volume=18dB,afade=t=in:st=0:d=0.012,afade=t=out:st=${fade_start}:d=0.08,aformat=channel_layouts=stereo" \
     -c:a libvorbis -q:a 4 \
     "$target/$name.oga"
 }

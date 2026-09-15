@@ -40,8 +40,10 @@ apply() {
     gsettings set org.gnome.desktop.background picture-uri "file://$pic" 2>>"$LOG_FILE" && \
     gsettings set org.gnome.desktop.background picture-uri-dark "file://$pic" 2>>"$LOG_FILE"
     if [ $? -eq 0 ]; then
+        # Sync the exact same wallpaper to GDM startup login screen
+        cp "$pic" /usr/share/backgrounds/current-gdm-background.jpg 2>/dev/null || true
         log "OK: $(basename "$pic")"
-        echo "Wallpaper set to $(basename "$pic")"
+        echo "Wallpaper set to $(basename "$pic") (Synced to login screen)"
     else
         log "FAILED: $pic"
         exit 1
