@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Purple Ops Shortcuts HUD
+zenity --info \
+  --title="🟣 Purple Ops Desktop Shortcuts" \
+  --width=480 \
+  --height=420 \
+  --text="<b>WINDOW MANAGEMENT (1-Letter Mnemonics)</b>
+  <b>Super + Q</b>   → Close / Quit window
+  <b>Super + F</b>   → Fullscreen / Maximize toggle
+  <b>Super + T</b>   → Auto-Tile all windows into grid
+  <b>Super + C</b>   → Center floating window
+  <b>Super + Y</b>   → Pin window always on top
+
+<b>SNAPPING (Double-Tap Arrows)</b>
+  <b>Super + ←</b>   → Left Half (tap again for quarters)
+  <b>Super + →</b>   → Right Half (tap again for quarters)
+  <b>Super + ↑/↓</b> → Maximize / Restore
+
+<b>SYSTEM & TOOLS</b>
+  <b>Super + K</b>   → Launch Kitty Terminal
+  <b>Super + V</b>   → Clipboard History
+  <b>Super + P</b>   → Toggle Top Bar Autohide
+  <b>Super + /</b>   → This Cheat Sheet" \
+  --ok-label="Close (Esc)" 2>/dev/null &

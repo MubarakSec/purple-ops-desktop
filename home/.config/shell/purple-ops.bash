@@ -56,3 +56,29 @@ alias listening='ss -lntup'
 alias public-ip='curl -fsS https://ifconfig.me; printf "\n"'
 alias ..='cd ..'
 alias ...='cd ../..'
+
+keys() {
+    cat << 'EOF' | bat --paging=never --language=markdown --plain
+# 🟣 Purple Ops Desktop Shortcuts
+
+## Window Management (1-Letter Mnemonics)
+  Super + Q        Quit / Close active window
+  Super + F        Fullscreen / Toggle maximize
+  Super + T        Tile / Auto-tile all windows into grid
+  Super + C        Center active floating window
+  Super + Y        Pin window always on top (Sticky)
+
+## Snapping (Double-Tap Arrows)
+  Super + ←        Left half  →  Top-Left 25%  →  Bottom-Left 25%
+  Super + →        Right half →  Top-Right 25% →  Bottom-Right 25%
+  Super + ↑ / ↓    Maximize / Restore window size
+
+## System & Tools
+  Super + K        Launch Kitty Terminal
+  Super + V        Clipboard History Manager
+  Super + P        Toggle Top Bar Autohide
+  Super + /        Show GUI Shortcuts HUD
+  music            Launch cmus terminal music player
+EOF
+}
+
