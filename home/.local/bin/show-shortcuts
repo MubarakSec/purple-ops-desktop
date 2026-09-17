@@ -11,10 +11,11 @@ zenity --info \
   <b>Super + C</b>   → Center floating window
   <b>Super + Y</b>   → Pin window always on top
 
-<b>SNAPPING (Double-Tap Arrows)</b>
-  <b>Super + ←</b>   → Left Half (tap again for quarters)
-  <b>Super + →</b>   → Right Half (tap again for quarters)
-  <b>Super + ↑/↓</b> → Maximize / Restore
+<b>SNAPPING (Arrow Snapping)</b>
+  <b>Super + ← / →</b>   → Snap Left / Right Half
+  <b>Then Super + ↑</b>   → Push to Top Corner
+  <b>Then Super + ↓</b>   → Push to Bottom Corner
+  <b>Super + ↑ / ↓</b>   → Maximize / Restore Down
 
 <b>SYSTEM & TOOLS</b>
   <b>Super + K</b>   → Launch Kitty Terminal

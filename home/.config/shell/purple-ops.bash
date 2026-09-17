@@ -68,9 +68,10 @@ keys() {
   Super + C        Center active floating window
   Super + Y        Pin window always on top (Sticky)
 
-## Snapping (Double-Tap Arrows)
-  Super + ←        Left half  →  Top-Left 25%  →  Bottom-Left 25%
-  Super + →        Right half →  Top-Right 25% →  Bottom-Right 25%
+## Snapping (Arrow Snapping)
+  Super + ← / →    Snap Left / Right Half
+  Then Super + ↑   Push to Top Corner (Top-Left / Top-Right)
+  Then Super + ↓   Push to Bottom Corner (Bottom-Left / Bottom-Right)
   Super + ↑ / ↓    Maximize / Restore window size
 
 ## System & Tools
