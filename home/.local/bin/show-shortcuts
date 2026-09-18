@@ -20,6 +20,7 @@ zenity --info \
 <b>SYSTEM & TOOLS</b>
   <b>Super + K</b>   → Launch Kitty Terminal
   <b>Super + V</b>   → Clipboard History
-  <b>Super + P</b>   → Toggle Top Bar Autohide
+  <b>Super + B</b>   → Toggle Top Bar (Bar)
+  <b>Super + P</b>   → Display Switcher (Mirror / Extend)
   <b>Super + /</b>   → This Cheat Sheet" \
   --ok-label="Close (Esc)" 2>/dev/null &

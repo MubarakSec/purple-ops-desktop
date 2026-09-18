@@ -77,7 +77,8 @@ keys() {
 ## System & Tools
   Super + K        Launch Kitty Terminal
   Super + V        Clipboard History Manager
-  Super + P        Toggle Top Bar Autohide
+  Super + B        Toggle Top Bar (Bar)
+  Super + P        Display Switcher (Mirror / Extend)
   Super + /        Show GUI Shortcuts HUD
   music            Launch cmus terminal music player
 EOF
