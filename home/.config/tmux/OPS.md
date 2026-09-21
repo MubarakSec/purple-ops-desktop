@@ -7,6 +7,21 @@ Your prefix is `Ctrl+Space`. Press it, release it, then press the action key.
 For the workbench letters (`y`, `g`, `m`, and `f`), keeping `Ctrl` held also
 works.
 
+## Start here
+
+Type `terminal-help` in any prompt to open this guide again. The same guide is
+available inside tmux with `Ctrl+Space`, then `?`.
+
+The everyday tools are:
+
+| What you want | In tmux | At a prompt |
+|---|---|---|
+| Browse and manage files | `Ctrl+Space`, then `y` | `y` or `files` |
+| Find a file by its name or contents of its path | `Ctrl+Space`, then `f` | `ff` |
+| Browse files beside the shell | `Ctrl+Space`, then `e` | — |
+| Work with the current Git repository | `Ctrl+Space`, then `g` | `lg` |
+| See CPU, memory, disks, and network | `Ctrl+Space`, then `m` | `bt` |
+
 ## Workspace
 
 | Key | Action |
@@ -72,6 +87,33 @@ These Kitty shortcuts work directly; they do not use the tmux prefix.
 
 Press `Ctrl+Space`, then `e` again to close the sidebar without changing the
 shell directory.
+
+## Finding files with fzf
+
+`Ctrl+Space`, then `f` opens a searchable list of files under the current
+directory. Type any part of a filename to narrow the list. Use `Ctrl+j` and
+`Ctrl+k` (or the arrow keys) to move, `Enter` to open the selected file in
+Neovim, and `Esc` to cancel. The pane on the right previews the selected file.
+
+Type `ff` for the same picker without using tmux.
+
+## Managing files in Yazi
+
+Start Yazi with `y`, `files`, or `Ctrl+Space`, then `y`. It opens in the
+current directory; when you press `q`, your shell follows the directory you
+were viewing.
+
+| Key | Action |
+|---|---|
+| `j` / `k` or arrows | Move through files |
+| `Enter` | Open a file or enter a directory |
+| `h` / `l` | Parent directory / selected directory |
+| `Space` | Select or unselect a file |
+| `y` / `x` / `p` | Copy / cut / paste selected files |
+| `d` | Send the selected file to the trash |
+| `/` | Find files by name |
+| `~` | Show Yazi's complete key reference |
+| `q` | Quit and return to the shell |
 
 ## Shell
 

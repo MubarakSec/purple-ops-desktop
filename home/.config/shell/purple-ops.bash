@@ -57,6 +57,25 @@ alias public-ip='curl -fsS https://ifconfig.me; printf "\n"'
 alias ..='cd ..'
 alias ...='cd ../..'
 
+# Terminal workbench entry points. They mirror the tmux shortcuts and keep
+# the tools useful when invoked directly from a shell.
+files() {
+    y "$@"
+}
+
+ff() {
+    "$HOME/.local/bin/tmux-fuzzy-open"
+}
+
+terminal-help() {
+    local guide="$HOME/.config/tmux/OPS.md"
+    if command -v glow >/dev/null 2>&1; then
+        glow -p "$guide"
+    else
+        less -R "$guide"
+    fi
+}
+
 keys() {
     cat << 'EOF' | bat --paging=never --language=markdown --plain
 # 🟣 Purple Ops Desktop Shortcuts
@@ -83,4 +102,3 @@ keys() {
   music            Launch cmus terminal music player
 EOF
 }
-
